@@ -79,7 +79,7 @@ SELECT NAME,GETDATE() FROM DU_Students;
 --16. Display Unique Semesters. 
 SELECT DISTINCT SEM FROM DU_Students;
 
---17. Display semester 5 student’s division and Enrollment No. 
+--17. Display semester 5 studentâ€™s division and Enrollment No. 
 SELECT DIVISION,ENROLLMENTNO FROM DU_Students WHERE SEM=5;
 
 --18. Retrieve All the Students who have no Enrollment No. 
@@ -120,3 +120,70 @@ TRUNCATE TABLE DU_STUDENTS;
 
 --30. Remove table DU_Students from the database.
 DROP TABLE DU_STUDENTS;
+
+
+---------------------------EXTRA------------------------------------------
+
+CREATE TABLE Employees (
+    EmpID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Department VARCHAR(30),
+    Salary DECIMAL(10,2),
+    City VARCHAR(30),
+    JoiningDate DATE
+);
+
+INSERT INTO Employees VALUES
+(1,'Amit','IT',50000,'Mumbai','2022-01-10'),
+(2,'Neha','HR',40000,'Delhi','2021-03-15'),
+(3,'Rahul','IT',60000,'Mumbai','2020-07-20'),
+(4,'Priya','Finance',55000,'Pune','2019-11-01'),
+(5,'Karan','HR',45000,'Delhi','2023-02-12');
+
+
+-- Display all records from the Employee table.
+SELECT * FROM Employees;
+
+-- Display only employee names.
+SELECT NAME FROM Employees;
+
+-- Show employee name and salary.
+SELECT NAME,SALARY FROM Employees
+
+-- Find employees working in the IT department.
+SELECT NAME FROM Employees WHERE DEPARTMENT='IT';
+
+-- Display employees whose salary is greater than 40,000.
+SELECT NAME FROM Employees WHERE SALARY > 40000;
+
+-- Show employees living in Mumbai.
+SELECT NAME FROM EMPLOYEES WHERE CITY='MUMBAI';
+
+-- Display employees whose salary is less than 50,000.
+SELECT NAME FROM Employees WHERE SALARY < 50000;
+
+-- Show employees whose name starts with 'A'.
+SELECT NAME FROM EMPLOYEES WHERE NAME LIKE 'A%';
+
+-- Display employees whose name ends with 'n'.
+SELECT NAME FROM EMPLOYEES WHERE NAME LIKE '%N';
+
+-- Sort employees by name in ascending order.
+SELECT NAME FROM EMPLOYEES ORDER BY NAME ASC;
+
+-- Sort employees by salary in descending order.
+SELECT SALARY FROM EMPLOYEES ORDER BY NAME DESC;
+
+-- Display top 3 employees from the table.
+SELECT TOP 3 NAME FROM EMPLOYEES;
+
+-- Count total number of employees.
+SELECT COUNT(*) FROM EMPLOYEES;
+
+-- Find maximum salary.
+SELECT MAX(SALARY) FROM EMPLOYEES;
+
+-- Find minimum salary.
+SELECT MIN(SALARY) FROM EMPLOYEES;
+
+
